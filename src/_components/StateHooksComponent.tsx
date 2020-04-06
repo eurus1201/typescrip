@@ -1,15 +1,16 @@
 import React from "react";
 interface State {
+    foo:string;
 }
 
-const StateHooksComponent: React.FC<State> = ({}) => {
+const StateHooksComponent: React.FC<State> = ({foo:string}) => {
 
     return (
         <div>
             <div>
                 Hello world
             </div>
-            State Hooks component
+            {/* State Hooks component */}
         </div>
     )
 }

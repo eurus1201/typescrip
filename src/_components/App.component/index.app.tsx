@@ -5,7 +5,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import useStyles from '../_styles/styles';
+import MenuIcon from '@material-ui/icons/Menu';
+import Home from "../Home.component/index.home.page";
+import useStyles from "./style.app";
 
 const App: React.FC = () => {
   const classes = useStyles();
@@ -15,24 +17,19 @@ const App: React.FC = () => {
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
-            {/* <MenuIcon /> */}
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button component={Link} to="/" color="inherit">Home</Button>
+          <Button component={Link} to="/about" color="inherit">About</Button>
         </Toolbar>
       </AppBar>
       <div >
-      <div>
-        <Link to="/" >Home page</Link>
-        <span> | </span>
-        <Link to="/about">About page</Link>
-      </div>
+
       <Switch>
-        <Route exact path="/">
-          <h1>Home page</h1>
-        </Route>
+        <Route exact path="/" component={Home} />
         <Route exact path="/about">
           <h1>About page</h1>
         </Route>

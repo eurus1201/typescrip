@@ -12,15 +12,7 @@ const useStyles = makeStyles({
 card: { maxWidth: 345, },
 media: { height: 140, }, });
 
-interface props {
-    email: string;
-    id?: number;
-    avatar?: URL;
-    users?: {};
-    [key: string]: any;
-}
-
-const MyCard:React.FC=({email:string, firstname:string, lastname:string, avatar:URL})=> {
+const MyCard:React.FC=({email, firstname, lastname, avatar})=> {
     
 const classes = useStyles();
 

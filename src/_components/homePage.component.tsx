@@ -4,14 +4,14 @@ import MyCard from "./card.component";
 
 interface props {
     email: string;
+    firstname: string;
     id?: number;
     avatar?: URL;
-    users?: {};
     [key: string]: any;
 }
 
 export const MyPhoto: React.FC = () => {
-    const [users, setUsers] = useState<props>();
+    const [users, setUsers] = useState<[]>();
 
   
 

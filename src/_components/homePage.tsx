@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import MyCard from "./card";
 import Switch from "@material-ui/core/Switch";
+import Tooltip from '@material-ui/core/Tooltip';
 import IUser from "../_interfaces/user";
 
 
@@ -24,7 +25,9 @@ export const PhotoList: React.FC = () => {
 
   return (
     <div>
+       <Tooltip title="chane the style">
        <Switch checked={card.cardMod} onChange={handleChange} name="cardMod"  inputProps={{ 'aria-label': 'change show style' }} />
+       </Tooltip>
       {card.cardMod ? (
         <div>
           <h3>THE CARD STYLE</h3>

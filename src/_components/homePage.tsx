@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import MyCard from "./card";
 import Switch from "@material-ui/core/Switch";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import IUser from "../_interfaces/user";
 
 
 export const PhotoList: React.FC = () => {
   const [users, setUsers] = useState<IUser[]>();
-  const [card, setCards] = useState({});
+  const [card, setCards] = useState({cardMod:true});
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCards({ [event.target.name]: !event.target.checked });
+    setCards({...card,[event.target.name]:!(card.cardMod) });
   };
 
   useEffect(() => {
@@ -25,13 +24,8 @@ export const PhotoList: React.FC = () => {
 
   return (
     <div>
-      <FormControlLabel
-        control={
-          <Switch checked={true} onChange={handleChange} name="cardMod" />
-        }
-        label="change style"
-      />
-      {card ? (
+       <Switch checked={card.cardMod} onChange={handleChange} name="cardMod"  inputProps={{ 'aria-label': 'change show style' }} />
+      {card.cardMod ? (
         <div>
           <h3>THE CARD STYLE</h3>
           <Grid container spacing={10} style={{ padding: "24px" }}>

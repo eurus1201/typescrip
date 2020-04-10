@@ -34,7 +34,7 @@ export const MyPhoto: React.FC = () => {
             <Grid container spacing={10}
                 style={{ padding: '24px' }}
             >
-                {users.map(users =>
+                {!!users && users.map(users =>
                     <Grid key={users.id} item
                         xs={12} sm={6} md={4} lg={4} xl={3}
                     >

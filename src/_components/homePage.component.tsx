@@ -4,34 +4,32 @@ import MyCard from "./card.component";
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-interface props {
+interface user {
     email: string;
     firstname: string;
     id: number;
-    avatar: URL;
-    PushSubscriptionOptions: any;
-    [key: string]: any;
+    avatar: string;
 }
 
-export const MyPhoto: React.FC = () => {
-    const [users, setUsers] = useState<[] | props>();
+export const PhotoList : React.FC = () => {
+    const [users, setUsers] = useState<[user]>();
     const [card,setCards] = useState(true);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setCards({ ...state, [event.target.name]: event.target.checked });
+        setCards({  [event.target.name]: event.target.checked });
       };
-    useEffect(() => {
-        async function fetchData() {
-            setUsers(
-                await fetch('https://reqres.in/api/users')
-                    .then(res => res.json())
-                    .then(res => res.data)
-                    .catch(err => console.log(err, 'error...'))
-            )
-        };
-        fetchData()
-    }, [])
 
+        async function fetchData() {
+        const res = await fetch('https://reqres.in/api/users');
+        res
+          .json()
+          .then(res => setUsers(res))
+          .catch(err => (console.log(err, 'error...'));
+      }
+    
+      useEffect(() => {
+        fetchData();
+      });
 
     return (
         <div>

@@ -8,11 +8,18 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+interface MyCardProps {
+    email: string, 
+    firstname: string, 
+    lastname: string, 
+    avatar: string
+}
+
 const useStyles = makeStyles({
 card: { maxWidth: 345, },
 media: { height: 140, }, });
 
-const MyCard:React.FC=({email, firstname, lastname, avatar})=> {
+const MyCard:React.FC<MyCardProps>=({email,firstname,lastname,avatar})=> {
     
 const classes = useStyles();
 

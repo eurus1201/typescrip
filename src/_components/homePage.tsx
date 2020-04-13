@@ -25,7 +25,7 @@ export const PhotoList: React.FC = () => {
 
   return (
     <div>
-       <Tooltip title="chane the style">
+       <Tooltip title="change the style">
        <Switch checked={card.cardMod} onChange={handleChange} name="cardMod"  inputProps={{ 'aria-label': 'change show style' }} />
        </Tooltip>
       {card.cardMod ? (
